@@ -57,7 +57,7 @@ Ngăn xếp dành cho nhà phát triển Mean: Mean Stack là sự kết hợp g
   
   • Lấy địa chỉ localhost bằng cách cd .. ra mục ban đầu và gõ lệnh `sudo ifconfig` để lấy địa chỉ localhost.
   
-  
+  <img src="https://github.com/ThaiHaiDev/Mean/blob/main/Images/bandicam%202021-12-13%2020-43-57-476.jpg?raw=true">
   
   • Mở .env để chỉnh sửa đường dẫn Path Database đã được tạo ở trên bằng các lệnh:
   
@@ -65,24 +65,47 @@ Ngăn xếp dành cho nhà phát triển Mean: Mean Stack là sự kết hợp g
   
   `vim .env`
   
-  
-  
-  
+  <img src="https://github.com/ThaiHaiDev/Mean/blob/main/Images/bandicam%202021-12-13%2011-57-39-851.jpg?raw=true">
   
   Sau đó cũng nhấn phím `s để bắt đầu chỉnh sửa và gõ 2 lệnh ở dưới vào:
   
   `DATABASE_PATH=mongodb://mean:admin@172.26.8.161/GROUP22`
   
+  `SECRET_KEY=thisissecret`
+  
   Với mean là tên User, admin là Password, GROUP22 là tên Database, 172.26.8.161 là địa chỉ localhost.
   
-  SECRET_KEY=thisissecret
+  <img src="https://github.com/ThaiHaiDev/Mean/blob/main/Images/bandicam%202021-12-13%2020-43-06-800.jpg?raw=true">
   
-  npm install -g forever
+  • Truy cập Folder cm_frontend và kiểm tra yêu cầu:
   
-  forever start index.js
+  Trong cm_frontend có src, chúng ta sẽ xem code bằng lệnh `cat src/index.js` và `cat src/backend` sẽ thấy yêu cầu đường dẫn REACT_APP_BACKEND. Sẽ thêm vào ở .env như ở trên.
   
-  forever start -c "npm start:production" ./
+  <img src="https://github.com/ThaiHaiDev/Mean/blob/main/Images/bandicam%202021-12-13%2012-00-36-211.jpg?raw=true">
   
-  npm install o MEAN
+  Thêm dòng code vào .env ở cm_frontend
   
-  172.26.15.127
+  Hình 
+  
+  Với địa chỉ ip được lấy ở Network ở AWS Lightsail của Stack Mean. Và đồng thời add rule ở Netword 2 Port 3000 và 8000
+  
+  Hình
+  
+  • Quay về vị trí ban đầu, cài đặt forever: `npm install -g forever` 
+  
+  Chạy `forever start index.js`
+  
+  • Truy cập lại customerManagement_MERN và cài npm `npm install`
+  
+  Sau khi cài xong npm, chạy `npm start` kiểm tra xem đã kết nối Database hay chưa. Nếu kết nối thành công sẽ hiện DB is Connected.
+  
+  Hình
+  
+  • Truy cập cm_frontend và cài npm `npm install`. Sau đó chạy lệnh `forever start "npm start" ./` và chạy `npm install`. App React đã được Starting với Server.
+  
+  Hình
+  
+  • Chạy trên trình duyện địa chỉ: `54.251.142.63:3000` . Bây giờ đã start App thành công với giao diện:
+  
+  Hình
+  
