@@ -49,13 +49,31 @@ Ngăn xếp dành cho nhà phát triển Mean: Mean Stack là sự kết hợp g
   
   <img src="https://github.com/ThaiHaiDev/Mean/blob/main/Images/bandicam%202021-12-13%2011-06-00-597.jpg?raw=true">
   
-  • Thực hiện chỉnh sửa file index.js theo như trong hình.
+  • Thực hiện chỉnh sửa file index.js theo như trong hình bằng cách nhấn phím `s` rồi thực hiện.
   
-  <img src="https://github.com/ThaiHaiDev/Mean/blob/main/Images/bandicam%202021-12-13%2011-06-00-597.jpg?raw=true">
+  <img src="https://github.com/ThaiHaiDev/Mean/blob/main/Images/bandicam%202021-12-13%2020-29-38-346.jpg?raw=true">
   
-  Sau đó
+  Sau đó lưu lại bằng cách nhấn tổ hợp phím `Ctrl + C` và gõ lệnh `wq!` để lưu.
   
-  DATABASE_PATH=mongodb://mean:admin@172.0.0.1:27017/GROUP22
+  • Lấy địa chỉ localhost bằng cách cd .. ra mục ban đầu và gõ lệnh `sudo ifconfig` để lấy địa chỉ localhost.
+  
+  
+  
+  • Mở .env để chỉnh sửa đường dẫn Path Database đã được tạo ở trên bằng các lệnh:
+  
+  `touch .env`
+  
+  `vim .env`
+  
+  
+  
+  
+  
+  Sau đó cũng nhấn phím `s để bắt đầu chỉnh sửa và gõ 2 lệnh ở dưới vào:
+  
+  `DATABASE_PATH=mongodb://mean:admin@172.26.8.161/GROUP22`
+  
+  Với mean là tên User, admin là Password, GROUP22 là tên Database, 172.26.8.161 là địa chỉ localhost.
   
   SECRET_KEY=thisissecret
   
