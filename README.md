@@ -285,55 +285,109 @@ Lightsail Container là gì Amazon Lightsail Containers cung cấp cho bạn kh�
   
   + Step 1: Tìm kiếm Cloud9Ubuntu
   
+  <img src="https://github.com/ThaiHaiDev/AWS-Lightsail/blob/main/Images/step1.jpg?raw=true">
+  
   + Step 2: Chọn máy ảo t3.large
+  
+  <img src="https://github.com/ThaiHaiDev/AWS-Lightsail/blob/main/Images/step2.jpg?raw=true">
 
   + Step 3: Set mặc định theo hình
 
+  <img src="https://github.com/ThaiHaiDev/AWS-Lightsail/blob/main/Images/step3.jpg?raw=true">
+  
   + Step 4: Set size là 64 GB
 
+  <img src="https://github.com/ThaiHaiDev/AWS-Lightsail/blob/main/Images/step4.jpg?raw=true">
+  
   + Step 5: Mặc định
+  
+  <img src="https://github.com/ThaiHaiDev/AWS-Lightsail/blob/main/Images/step5.jpg?raw=true">
 
   + Step 6: Set mặc định theo hình
 
+  <img src="https://github.com/ThaiHaiDev/AWS-Lightsail/blob/main/Images/step6.jpg?raw=true">
+
   + Step 7: Set mặc định theo hình, nhấn Lauch Instance
+
+  <img src="https://github.com/ThaiHaiDev/AWS-Lightsail/blob/main/Images/step7.jpg?raw=true">
 
   • Tiến hình download key về để dùng Connect SSH.
   
+  <img src="https://github.com/ThaiHaiDev/AWS-Lightsail/blob/main/Images/key.jpg?raw=true">
+  
   • Tạo 1 Create Repository trên Docker Hub, có thể đặt tên tùy ý. Trong demo này, đặt tên là lightsail. Repository trong bài: `hai19110356/lightsail`
+  
+  <img src="https://github.com/ThaiHaiDev/AWS-Lightsail/blob/main/Images/dockerhub.jpg?raw=true">
   
 ## Push image lên Docker Hub
 
   • Truy cập vào Folder chứa key và tiến hành Connect trên CMD.
   
+  <img src="https://github.com/ThaiHaiDev/AWS-Lightsail/blob/main/Images/ssh.jpg?raw=true">
+  
   • Tiến hành tạo ra Folder lightsail, truy cập đến Folder và dùng lệnh `vi index.html` để xem và edit file html.
+  
+  <img src="https://github.com/ThaiHaiDev/AWS-Lightsail/blob/main/Images/mkdir.jpg?raw=true">
   
   • Nhấn phím `s` để thực hiện edit file, sau khi copy đoạn code html vào index.html. Nhấn tổ hợp phím `Ctrl + c` và gõ `:wq!` để lưu thay đổi.
   
+  <img src="https://github.com/ThaiHaiDev/AWS-Lightsail/blob/main/Images/html.jpg?raw=true">
+  
   • Edit file Dockerfile bằng lệnh `vi Dockerfile` và chỉnh sửa file bằng cách tương tự như index. Edit theo như hình và `wq!` để lưu lại.
+  
+  <img src="https://github.com/ThaiHaiDev/AWS-Lightsail/blob/main/Images/dockerfile.jpg?raw=true">
   
   • Built docker 
   
+  <img src="https://github.com/ThaiHaiDev/AWS-Lightsail/blob/main/Images/build.jpg?raw=true">
+  
   • Đặt tag và Login vào tài khoản Docker Hub để tiến hành push image
   
-  • Login thành câu và push image bằng lệnh `docker push hai19110356/lightsail`
+  <img src="https://github.com/ThaiHaiDev/AWS-Lightsail/blob/main/Images/tag_login.jpg?raw=true">
+  
+  • Login thành công và push image bằng lệnh `docker push hai19110356/lightsail`
+  
+  <img src="https://github.com/ThaiHaiDev/AWS-Lightsail/blob/main/Images/push.jpg?raw=true">
   
  Sau khi push image lên Docker Hub thành công, tiến hành kiểm tra Repository đã được đẩy lên hay chưa.
+ 
+  <img src="https://github.com/ThaiHaiDev/AWS-Lightsail/blob/main/Images/dockerhub.jpg?raw=true">
  
  ## Tạo Container Service
   • Quay trở lại giao diện Lightsail console. Click vào tab Container. Click Create container service.
   
+  <img src="https://github.com/ThaiHaiDev/AWS-Lightsail/blob/main/Images/createcontainer.jpg?raw=true">
+  
   • Chọn một vị trí cho dịch vụ container của bạn bằng cách chọn một AWS Region gần bạn hoặc gần khách hàng của bạn. Đối với lab này, chúng ta sẽ sử dụng Region Singapore. Kéo màn hình xuống dưới, đặt tên cho dịch vụ container của bạn là lightsail sau đó click Create container service.
+  
+  <img src="https://github.com/ThaiHaiDev/AWS-Lightsail/blob/main/Images/name.jpg?raw=true">
   
 Sẽ mất vài phút để quá trình tạo dịch vụ container hoàn tất và trạng thái chuyển sang Ready. Bước tiếp theo chúng ta sẽ thực hiện triển khai một deployment từ 1 container image lấy từ public repo ( kho lưu trữ công cộng).
 
 ## Deploy
   • Click vào tab Deployments và chọn Create your first deployment.
   
+  <img src="https://github.com/ThaiHaiDev/AWS-Lightsail/blob/main/Images/deploy.jpg?raw=true">
+  
   • Đặt các thông số Container theo mẫu dưới.
+  
+  <img src="https://github.com/ThaiHaiDev/AWS-Lightsail/blob/main/Images/thongso.jpg?raw=true">
   
 Sau khi deploy, cần đợi vài phút để xử lí.
 
+<img src="https://github.com/ThaiHaiDev/AWS-Lightsail/blob/main/Images/after.jpg?raw=true">
+
+Đợi vài phút ...
+
+<img src="https://github.com/ThaiHaiDev/AWS-Lightsail/blob/main/Images/deploying.jpg?raw=true">
+
 Sau khi đã xong, chúng ta có thể truy cập Public domain để đến trang web của ta đã deploy.
+
+<img src="https://github.com/ThaiHaiDev/AWS-Lightsail/blob/main/Images/running.jpg?raw=true">
+
+Trang web Pulic Domain sau khi đã Deploy Image hoàn thành.
+
+<img src="https://github.com/ThaiHaiDev/AWS-Lightsail/blob/main/Images/demo.jpg?raw=true">
 
 
   
