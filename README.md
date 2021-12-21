@@ -175,7 +175,11 @@ Ngăn xếp dành cho nhà phát triển Mean: Mean Stack là sự kết hợp g
   <img src="https://github.com/ThaiHaiDev/Mean/blob/main/Images/bandicam%202021-12-13%2010-29-38-872.jpg?raw=true">
   
   ## 3. Clone các project github
-  • Clone 2 project từ github về gồm Front-End và Back-End để thực hiện cài đặt app React. Sau khi clone xong, sử dụng lệnh `ls` để xem đã có mục phần đó hay chưa.
+  • Clone 2 project từ github về gồm Front-End và Back-End để thực hiện cài đặt app React. Sau khi clone xong, sử dụng lệnh `ls` để xem đã có mục phần đó hay chưa. Link 2 project: 
+  
+  https://github.com/ThaiHaiDev/customerManagement_MERN
+  
+  https://github.com/ThaiHaiDev/cm_frontend
   
   <img src="https://github.com/ThaiHaiDev/Mean/blob/main/Images/bandicam%202021-12-13%2010-42-52-360.jpg?raw=true">
   
