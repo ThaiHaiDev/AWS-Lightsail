@@ -337,7 +337,9 @@ Lightsail Container là gì Amazon Lightsail Containers cung cấp cho bạn kh�
   
   <img src="https://github.com/ThaiHaiDev/AWS-Lightsail/blob/main/Images/dockerfile.jpg?raw=true">
   
-  • Built docker 
+  <img src="https://github.com/ThaiHaiDev/AWS-Lightsail/blob/main/Images/editdockerfile.jpg?raw=true">
+  
+  • Build docker 
   
   <img src="https://github.com/ThaiHaiDev/AWS-Lightsail/blob/main/Images/build.jpg?raw=true">
   
@@ -371,7 +373,7 @@ Sẽ mất vài phút để quá trình tạo dịch vụ container hoàn tất 
   
   • Đặt các thông số Container theo mẫu dưới.
   
-  <img src="https://github.com/ThaiHaiDev/AWS-Lightsail/blob/main/Images/thongso.jpg?raw=true">
+  <img src="https://github.com/ThaiHaiDev/AWS-Lightsail/blob/main/Images/thongso1.jpg?raw=true">
   
 Sau khi deploy, cần đợi vài phút để xử lí.
 
