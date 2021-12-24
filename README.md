@@ -90,8 +90,8 @@ Mã môn học: CLCO332779
 - Chọn tag **Databases**, chọn **Create database**.
 ![myimage-alt-tag](https://github.com/theanh176/Group22_Lightsail/blob/main/image/createdb.jpg)
 
-- Chọn vị trí cho database, ở đây ta chọn Singapore.
-![myimage-alt-tag](https://github.com/theanh176/Group22_Lightsail/blob/main/image/regiondb.jpg)
+- Chọn vị trí cho database, ở đây ta chọn Virginia.
+![myimage-alt-tag](https://github.com/theanh176/Group22_Lightsail/blob/main/image/regiondbus.jpg)
 
 - Chọn MySql, chọn version cho MySql.
 ![myimage-alt-tag](https://github.com/theanh176/Group22_Lightsail/blob/main/image/vsmysql.jpg)
@@ -100,12 +100,11 @@ Mã môn học: CLCO332779
 ![myimage-alt-tag](https://github.com/theanh176/Group22_Lightsail/blob/main/image/pricedb.jpg)
 
 - Đặt tên cho database và nhấn **Create database** để tạo database.
-![myimage-alt-tag](https://github.com/theanh176/Group22_Lightsail/blob/main/image/dbname.jpg)
+![myimage-alt-tag](https://github.com/theanh176/Group22_Lightsail/blob/main/image/namedb.jpg)
 
 - Sau khi tạo xong, database sẽ bị ẩn đi bởi vì phía server đang tạo database, ta chờ khoảng 15p database sẽ hoàn tất.
-- Chọn vào database để xem thông tin.
-![myimage-alt-tag](https://github.com/theanh176/Group22_Lightsail/blob/main/image/waitdb.jpg)
 
+- Chọn vào database để xem thông tin.
 - Để bất kỳ ai có thông tin của database đều có thể lấy dữ liệu xuống MySql Local, ta chọn tag **Networking** trong database, Bật **Public mode**.
 
 ![myimage-alt-tag](https://github.com/theanh176/Group22_Lightsail/blob/main/image/publicdb.jpg)
@@ -118,7 +117,7 @@ Mã môn học: CLCO332779
 
 - Nếu phản hồi xuất hiện như hình bên dưới thì dữ liệu được chuyển thành công.
 
-![myimage-alt-tag](https://github.com/theanh176/Group22_Lightsail/blob/main/image/passSuccess.jpg)
+![myimage-alt-tag](https://github.com/theanh176/Group22_Lightsail/blob/main/image/successdb.jpg)
 
 - Phòng trường hợp xảy ra sự cố, ta sẽ tạo bản sao lưu của `config.php` bằng lệnh:
 
@@ -128,13 +127,61 @@ Mã môn học: CLCO332779
 
 `nano stack/wordpress/wp-config.php`
 
+![myimage-alt-tag](https://github.com/theanh176/Group22_Lightsail/blob/main/image/database.jpg)
+
 - Tìm và chỉnh sửa ba giá trị của `DB_USER`, `DB_PASSWORD` và `DB_HOST` bằng User name, Password, Endpoint:3306 của database.
 
-![myimage-alt-tag](https://github.com/theanh176/Group22_Lightsail/blob/main/image/config.jpg)
+![myimage-alt-tag](https://github.com/theanh176/Group22_Lightsail/blob/main/image/connectsuccess.jpg)
 
 - Cuối cùng, nhập lệnh `sudo stack/ctlscript.sh restart` để khởi động lại các dịch vụ web trên phiên bản.
 
-## 6. Trỏ tên miền cho ứng dụng
+## 6. Thiết lập storage cho wordpress
+- Trước tiên, tạo bucket trong storage.
+- Chọn tag **Storage**, chọn **Create bucket**.
+
+![myimage-alt-tag](https://github.com/theanh176/Group22_Lightsail/blob/main/image/infostorage.jpg)
+- Trang create bucket xuất hiện.
+
+![myimage-alt-tag](https://github.com/theanh176/Group22_Lightsail/blob/main/image/createbucket.jpg)
+- Chọn vị trí cho bucket, ở đây ta chọn Virginia.
+
+![myimage-alt-tag](https://github.com/theanh176/Group22_Lightsail/blob/main/image/regionbucket.jpg)
+- Chọn dung lượng lưu trữ cần thiết.
+
+![myimage-alt-tag](https://github.com/theanh176/Group22_Lightsail/blob/main/image/pricebk.jpg)
+- Đặt tên cho bucket và nhấn **Create bucket**.
+
+![myimage-alt-tag](https://github.com/theanh176/Group22_Lightsail/blob/main/image/namebk.jpg)
+- Bucket tạo thành công.
+- Tiếp theo ta thiết lập permission, chọn tag **Permissions**.
+
+![myimage-alt-tag](https://github.com/theanh176/Group22_Lightsail/blob/main/image/infobucket.jpg)
+- Ta thay đổi permission thành **All objects are public and read-only** để chuyển sang chế độ công khai và có thể xem dữ liệu.
+
+![myimage-alt-tag](https://github.com/theanh176/Group22_Lightsail/blob/main/image/permissionbk.jpg)
+- Liên kết với instance, ở đây chọn instance là wordpress **lightsail-wordpress**, nhấn **attach**.
+
+![myimage-alt-tag](https://github.com/theanh176/Group22_Lightsail/blob/main/image/attachinstance.jpg)
+
+- Truy cập vào wordpress admin để cài đặt plugin S3.
+- install **WP Offload Media Lite for Amazon S3, DigitalOcean Spaces, and Google Cloud Storage**.
+
+![myimage-alt-tag](https://github.com/theanh176/Group22_Lightsail/blob/main/image/s3install.jpg)
+- Sau đó ta chọn settings để thiết lập cho S3.
+
+![myimage-alt-tag](https://github.com/theanh176/Group22_Lightsail/blob/main/image/settings3.jpg)
+- Ta chọn Storage Provider là Amazon S3, mục **My server is on Amazon Web Service and I'd like to use IAM Roles**. Nhấn **Next**.
+
+![myimage-alt-tag](https://github.com/theanh176/Group22_Lightsail/blob/main/image/rules3.jpg)
+- Thêm bucket ta vừa tạo. Nhấn **Save Bucket Setting**.
+
+![myimage-alt-tag](https://github.com/theanh176/Group22_Lightsail/blob/main/image/attachbk.jpg)
+
+![myimage-alt-tag](https://github.com/theanh176/Group22_Lightsail/blob/main/image/savechanges3.jpg)
+- **Save Changes**.
+- Đến đây, ta đã thành công thiết lập storage cho wordpress.
+
+## 7. Networking
 
 - Tạo tên miền ở Freenom
 
@@ -158,6 +205,64 @@ Mã môn học: CLCO332779
 
 ![myimage-alt-tag](https://github.com/theanh176/Group22_Lightsail/blob/main/image/93domain_add_recore2.PNG)
 
+- Tạo bộ cân bằng tải
+
+![myimage-alt-tag](https://github.com/theanh176/Group22_Lightsail/blob/main/image/94_LoadBalancer.PNG)
+
+- Thêm các phiên bản vào bộ cân bằng tải
+
+![myimage-alt-tag](https://github.com/theanh176/Group22_Lightsail/blob/main/image/95_Attach_another.PNG)
+
+- Tạo chứng chỉ SSL vào bộ cân bằng tải
+
+![myimage-alt-tag](https://github.com/theanh176/Group22_Lightsail/blob/main/image/96_SSL.PNG)
+
+- Tạo DNS records, copy Name và Value từ chứng chỉ của bộ cân bằng tải điền vào trong CNAME records.
+
+![myimage-alt-tag](https://github.com/theanh176/Group22_Lightsail/blob/main/image/97_Name_value.PNG)
+![myimage-alt-tag](https://github.com/theanh176/Group22_Lightsail/blob/main/image/991_add_record.PNG)
+
+- Chọn chứng chỉ SSL và bật Https
+
+![myimage-alt-tag](https://github.com/theanh176/Group22_Lightsail/blob/main/image/99_https.PNG)
+
+- Tiếp tục tạo DNS records, điền tên trang web và trỏ tên bộ cân bằng tải qua trong A records.
+
+![myimage-alt-tag](https://github.com/theanh176/Group22_Lightsail/blob/main/image/991_add_record.PNG)
+
+- Kích hoạt tính ổn định của trang.
+
+![myimage-alt-tag](https://github.com/theanh176/Group22_Lightsail/blob/main/image/98_tick.PNG)
+
+## 8. Snapshots
+
+- Vào snapshots chọn create snapshot
+
+![myimage-alt-tag](https://github.com/theanh176/Group22_Lightsail/blob/main/image/9911_snapshots.PNG)
+
+- Đặt tên cho snapshots nhấn create
+
+![myimage-alt-tag](https://github.com/theanh176/Group22_Lightsail/blob/main/image/9912_name_snap.PNG)
+
+- Tạo một phiên bản mới từ Snapshots
+
+![myimage-alt-tag](https://github.com/theanh176/Group22_Lightsail/blob/main/image/992_manual_snapshots.PNG)
+
+- Giao diện tạo một phiên bản mới.
+
+![myimage-alt-tag](https://github.com/theanh176/Group22_Lightsail/blob/main/image/993_create_snapshot.PNG)
+
+- Chọn vùng khả dụng cho phiên bản
+
+![myimage-alt-tag](https://github.com/theanh176/Group22_Lightsail/blob/main/image/994_select_location.PNG)
+
+- Chọn giá tiền phù hợp
+
+![myimage-alt-tag](https://github.com/theanh176/Group22_Lightsail/blob/main/image/995_price_snapshot.PNG)
+
+- Nhấn create để hoàn thành tạo phiên bản mới
+
+![myimage-alt-tag](https://github.com/theanh176/Group22_Lightsail/blob/main/image/996_create.PNG)
 
 # II. Mean
 Ngăn xếp dành cho nhà phát triển Mean: Mean Stack là sự kết hợp giữa của MongoDB, ExpressJS, AngularJS, NodeJS và khiến cho việc xây dựng những ứng dụng web trở nên mạnh mẽ và đơn giản hơn bao giờ hết.
@@ -175,11 +280,7 @@ Ngăn xếp dành cho nhà phát triển Mean: Mean Stack là sự kết hợp g
   <img src="https://github.com/ThaiHaiDev/Mean/blob/main/Images/bandicam%202021-12-13%2010-29-38-872.jpg?raw=true">
   
   ## 3. Clone các project github
-  • Clone 2 project từ github về gồm Front-End và Back-End để thực hiện cài đặt app React. Sau khi clone xong, sử dụng lệnh `ls` để xem đã có mục phần đó hay chưa. Link 2 project: 
-  
-  https://github.com/ThaiHaiDev/customerManagement_MERN
-  
-  https://github.com/ThaiHaiDev/cm_frontend
+  • Clone 2 project từ github về gồm Front-End và Back-End để thực hiện cài đặt app React. Sau khi clone xong, sử dụng lệnh `ls` để xem đã có mục phần đó hay chưa.
   
   <img src="https://github.com/ThaiHaiDev/Mean/blob/main/Images/bandicam%202021-12-13%2010-42-52-360.jpg?raw=true">
   
@@ -391,8 +492,6 @@ Trang web Pulic Domain sau khi đã Deploy Image hoàn thành.
 
 <img src="https://github.com/ThaiHaiDev/AWS-Lightsail/blob/main/Images/demo.jpg?raw=true">
 
-
-  
 # Tài liệu tham khảo
 
 https://aws.amazon.com
