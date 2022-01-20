@@ -11,6 +11,8 @@ Giảng viên hướng dẫn: TS. Huỳnh Xuân Phụng
 
 Mã môn học: CLCO332779
 
+Tiến vào thực hiện ứng dụng minh họa, nhóm đã thực hiện được các chức năng cơ bản của một Wordpress trên Lightsail với tạo và kết nối database, tạo ip tĩnh cũng như DNS domain cho website, tạo cân bằng tải để cân bằng lượt truy cập, tạo storage để lưu trữ hình ảnh, video, file, dữ liệu, … mà người dùng upload lên website. Bên cạnh đó là việc sử dụng Container để chạy 1 ứng dụng Web bằng cách sử dụng các Docker Image được push từ máy ảo trên EC2 push lên Docker Hub. Và thực hiện triển khai 1 ứng dụng React trên Stack Mean có sử dụng database Mongo được tạo trực tiếp từ Bitnami. Ngoài ra còn có thêm Snapshops tạo 1 bản sao lưu tại 1 thời điểm Instance của bạn. Nó được dùng để tạo 1 Instance mới từ Instance hiện tại.
+
 # I. Cấu hình WordPress với Amazon Lightsail
 
 - Amazon Web Services là nền tảng dịch vụ điện toán đám mây an toàn, mang đến khả năng tính toán, lưu trữ cơ sở dữ liệu, phân phối nội dung và các chức năng khác nhằm giúp các doanh nghiệp mở rộng và phát triển.
